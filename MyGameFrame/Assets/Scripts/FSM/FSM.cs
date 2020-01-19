@@ -214,7 +214,7 @@ public class FSM
     //状态机发送消息，从状态列表中检测，如果包含注册了该消息的状态机，返回需要切换的状态机名字，切换状态
     public void post(string msg)
     {
-            FSMMsg evt = new FSMMsg();
+        FSMMsg evt = new FSMMsg();
         evt.msg = msg;
         this.postEvent(evt);
     }

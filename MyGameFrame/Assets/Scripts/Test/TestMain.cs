@@ -7,6 +7,7 @@ public class TestMain :Singleton<TestMain> {
 
     public TestController Controller;
 
+
     void Start()
     {
         //设置游戏帧数
@@ -36,14 +37,17 @@ public class TestMain :Singleton<TestMain> {
             Debug.Log("好的准备开工");
             Controller.TaskWait(2f, delegate
             {
-                //等待0.5秒后开工
+                //等待2秒后开工
                 fsm.translation("SecondState");
             });
         };
-        state.AddAction("Forth", delegate
+        state.AddAction("First", delegate
         {
-            Debug.Log("不干了 直接睡觉！");
-            fsm.translation("ForthState");
+            Debug.Log("别吵，在干活呢");
+        });
+        state.AddAction("ddddd", delegate
+        {
+            Debug.Log("我是ddddd");
         });
         state.OnOver += delegate
         {
@@ -110,12 +114,34 @@ public class TestMain :Singleton<TestMain> {
         {
             Debug.Log("不能睡了");
         };
-        state.AddAction("First", delegate
+        state.AddAction("Forth", delegate
         {
-            Debug.Log("良心过意不去,回去干活");
-            fsm.translation("FirstState");
+            Debug.Log("睡着了,没看到");
         });
         return state;
     }
 
+    void Update()
+    {
+        //test
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            fsm.post("ddddd");
+        }
+        if (fsm.CurrState=="FirstState")
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                fsm.post("First");
+            }
+        }
+
+        if (fsm.CurrState == "ForthState")
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                fsm.post("Forth");
+            }
+        }
+    }
 }

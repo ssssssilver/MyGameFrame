@@ -11,6 +11,5 @@ public class TestController: GameController <TestController>
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+    }
 }

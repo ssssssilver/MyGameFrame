@@ -22,7 +22,7 @@ public class GameController<T> : MonoBehaviour where T : MonoBehaviour
 
 
 
-    public float TimeScale;
+    public float TimeScale=1;
 
 
     //静态变量记录选择的关卡
