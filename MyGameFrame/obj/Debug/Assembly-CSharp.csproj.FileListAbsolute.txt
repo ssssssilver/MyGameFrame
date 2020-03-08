@@ -1,0 +1,2 @@
+D:\GitHubDesktop2.1.0.0\Projects\MyGameFrame\MyGameFrame\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\GitHubDesktop2.1.0.0\Projects\MyGameFrame\MyGameFrame\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache

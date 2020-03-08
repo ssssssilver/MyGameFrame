@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Done;
-public class TestMain :Singleton<TestMain> {
+public class TestMain :SingletonManager<TestMain> {
 
     private FSM fsm = new FSM();
 
