@@ -12,8 +12,10 @@ namespace Done
         {
             DontDestroyOnLoad(this);
         }
-
+        //udpate事件
         private event Action UpdateEvent;
+        //destroy事件
+        private event Action DestroyEvent;
 
 
         // Update is called once per frame
@@ -44,6 +46,15 @@ namespace Done
         public void Clear()
         {
             UpdateEvent = null;
+        }
+
+        public void OnDestroy()
+        {
+            if (DestroyEvent != null)
+                DestroyEvent();
+
+            UpdateEvent = null;
+            DestroyEvent = null;
         }
 
 

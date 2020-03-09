@@ -34,10 +34,11 @@ public class ResourcesManager :SingletonClass<ResourcesManager>
             MonoManager.GetInstance().StartCoroutine(WaitForLoadAsync(name,loadComplete));
         }
 
-        public IEnumerator WaitForLoadAsync<T>(string name,Action<T> action)where T: UnityEngine.Object
+        IEnumerator WaitForLoadAsync<T>(string name,Action<T> action)where T: UnityEngine.Object
         {
             ResourceRequest r = Resources.LoadAsync<T>(name);
             yield return r;
+            Debug.Log(r.asset);
             if (r.asset is GameObject)
             {
                 action(GameObject.Instantiate(r.asset)as T);
